@@ -3,8 +3,6 @@ import pyautogui
 import common.constant as constant
 import common.utils as utils
 
-pyautogui.PAUSE = 1
-
 
 def handle_exception():
     """
@@ -40,23 +38,26 @@ def handle_exception():
             print(f'点击[刷新]：{p3}')
             pyautogui.moveTo(p3[0], p3[1], duration=0.25)
             pyautogui.click()
+            time.sleep(1)
+            pyautogui.click()
             time.sleep(10)
 
             # TODO 拖拽[滑块]
             print(f'拖拽[滑块]：{p4}')
             pyautogui.moveTo(p4[0], p4[1], duration=0.5)
             pyautogui.mouseDown()
-            pyautogui.moveRel(100, 20, duration=0.25)
-            pyautogui.moveRel(100, -30, duration=0.5)
-            pyautogui.moveRel(150, 15, duration=1)
-            pyautogui.moveRel(50, 20, duration=0.25)
+            pyautogui.moveRel(100, 10, duration=0.15)
+            pyautogui.moveRel(150, -20, duration=0.20)
+            pyautogui.moveRel(100, 15, duration=0.25)
             pyautogui.mouseUp()
-            time.sleep(3)
+            time.sleep(5)
 
             # TODO 点击[处理完成]
             p5 = utils.get_xy(constant.PROCESS_COMPLETED_PATH)
             print(f'[处理完成]坐标：{p5}')
             pyautogui.moveTo(p5[0], p5[1], duration=0.25)
+            pyautogui.click()
+            pyautogui.moveRel(100, 100, duration=0.25)
             pyautogui.click()
             time.sleep(3)
 

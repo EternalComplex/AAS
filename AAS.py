@@ -14,6 +14,6 @@ if __name__ == '__main__':
             tb.handle_exception()
             print(f'第{cnt}次异常处理结束')
             cnt += 1
-            time.sleep(300)
+            time.sleep(240)
     else:
         sys.exit(0)
