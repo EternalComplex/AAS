@@ -6,12 +6,12 @@ import win32gui
 import common.constant as constant
 
 
-def start_confirm():
+def start_confirm(cnt, interval):
     """
     程序运行确认窗口
     :return: OK | Cancel
     """
-    return pyautogui.confirm(text='启动脚本后不可操作电脑，确认启动吗？', title='good', buttons=['OK', 'Cancel'])
+    return pyautogui.confirm(text=f'脚本运行{cnt}次, 结束后间隔{interval}秒再次运行, 确认启动吗？', title='AAS', buttons=['OK', 'Cancel'])
 
 
 def error_confirm():
@@ -19,7 +19,23 @@ def error_confirm():
     程序出现错误的提示窗口
     :return:
     """
-    return pyautogui.confirm(text='找不到目标窗口，请打开软件', title='good', buttons=['OK'])
+    return pyautogui.confirm(text='找不到目标窗口，请打开软件', title='AAS', buttons=['OK'])
+
+
+def runs_confirm():
+    """
+    程序运行次数选择窗口
+    :return:
+    """
+    return pyautogui.confirm(text='请选择脚本运行次数.', title='AAS', buttons=[1, 5, 10, 999])
+
+
+def interval_confirm():
+    """
+    程序运行间隔选择窗口
+    :return:
+    """
+    return pyautogui.confirm(text='请选择脚本运行间隔时间.', title='AAS', buttons=[120, 180, 240, 300])
 
 
 def into_software():

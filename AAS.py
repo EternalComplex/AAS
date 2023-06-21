@@ -6,14 +6,18 @@ import common.utils as utils
 
 
 if __name__ == '__main__':
-    check = utils.start_confirm()
+    cnt = int(utils.runs_confirm())
+    interval = int(utils.interval_confirm())
+    check = utils.start_confirm(cnt, interval)
     if check == 'OK':
-        cnt = 1
-        while True:
-            print(f'第{cnt}次异常处理')
+        index = 1
+        while index <= cnt:
+            print(f'第{index}次异常处理开始...')
             tb.handle_exception()
-            print(f'第{cnt}次异常处理结束')
-            cnt += 1
-            time.sleep(240)
+            print(f'第{index}次异常处理结束...')
+            index += 1
+            for i in range(interval, 0):
+                print(f'执行倒计时：{i}s')
+                time.sleep(1)
     else:
         sys.exit(0)
